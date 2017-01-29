@@ -1,6 +1,5 @@
-//var app = angular.module("myApp", ["ngRoute","ui.bootstrap"]);
-var app = angular.module("myApp", ["ui.bootstrap"]);
-/*app.  config(['$locationProvider', '$routeProvider',
+var app = angular.module("myApp", ["ngRoute","ui.bootstrap"]);
+app.  config(['$locationProvider', '$routeProvider',
     function config($locationProvider, $routeProvider) {
         $locationProvider.html5Mode(true);
         $locationProvider.hashPrefix('!');
@@ -20,4 +19,4 @@ var app = angular.module("myApp", ["ui.bootstrap"]);
         // .otherwise({ redirectTo: '/home' });
         .otherwise({  template: "Page Not found" });
         }
-  ]);*/
+  ]);
