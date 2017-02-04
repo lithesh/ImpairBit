@@ -3,35 +3,21 @@
     <head>
         <title>ImpairBit</title>
         <link rel="stylesheet" href="./assets/css/style.css"></link>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
-    <body>
-
-    <header>
-
-    </header>
-        <!--<div class='Page Header'>
-            <div class='Menu_Container'>
-                <a href="/">Home</a>
-                <a href="/aboutus">About US</a>
-                <a href="/contactus">Contact US</a>
-                <a href="/products">Products </a>
-            </div>
-        </div>-->
+    <body ng-controller="MainCtrl">
         <div>
             <nav role="navigation" id="access">
-                <a class="skip-link icon-reorder" title="Menu" href="home">Menu</a>
+                <a class="skip-link icon-reorder" title="Menu" ng-click='onMenuClick()'>Menu</a>
                 <ul id="menu">
-                        <li class="active"><a class="icon-home" href="#!home">Home</a></li>
-                        <li><a class="icon-group" href="#!aboutus">About Us</a></li>
-                        <li><a class="icon-leaf" href="#!services">Services</a></li>
-                        <li><a class="icon-envelope-alt" href="#!contactus">Contact</a></li>
+                        <li class="active"><a class="icon-home" href="/">Home</a></li>
+                        <li><a class="icon-group" href="/aboutus">About Us</a></li>
+                        <li><a class="icon-leaf" href="/services">Services</a></li>
+                        <li><a class="icon-envelope-alt" href="/contactus">Contact</a></li>
                 </ul>
             </nav>
-        <div>
-	<div class="page {{ pageClass }}" ng-view ></div>
-
-    <div >
-    
+        </div>
+	<div class="page page-anim" ng-view ></div>    
     </body>   
         <script src='./libs/angular.min.js'></script>
         <script src='./libs/angular-route.js'></script>

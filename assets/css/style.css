@@ -11,11 +11,11 @@ html, body {
 }
 body{
     background: -webkit-gradient(radial, 12% 0%, 0, 12% 0%, 100, color-stop(0%, #382c75), color-stop(100%, #0c081f));
-    background: -webkit-radial-gradient(center top, ellipse cover, #382c75 12%, #0c081f 100%);
-    background: -moz-radial-gradient(center top, ellipse cover, #382c75 12%, #0c081f 100%));
-    background: -o-radial-gradient(center top, ellipse cover, #382c75 12%, #0c081f 100%));
-    background: -ms-radial-gradient(center top, ellipse cover, #382c75 12%, #0c081f 100%));
-    background: radial-gradient(center top, ellipse cover, #382c75 12%, #0c081f 100%));
+    background: -webkit-radial-gradient(center center, ellipse cover, #382c75 12%, #0c081f 100%);
+    background: -moz-radial-gradient(center center, ellipse cover, #382c75 12%, #0c081f 100%));
+    background: -o-radial-gradient(center center, ellipse cover, #382c75 12%, #0c081f 100%));
+    background: -ms-radial-gradient(center center, ellipse cover, #382c75 12%, #0c081f 100%));
+    background: radial-gradient(center center, ellipse cover, #382c75 12%, #0c081f 100%));
     padding: 0;
     margin: 0;
     height: 100%;
@@ -26,6 +26,8 @@ body{
     color: #ffffff;
     padding: 2em;
     text-shadow: 4px 1px 6px rgb(0, 0, 0);
+	font-size: 1.3em;
+	background: rgba(84, 84, 84, 0.25);
 }
 
 
@@ -38,43 +40,19 @@ body{
 /* page specific animations ------------------------ */
 
 /* home -------------------------- */
-.page-home.ng-leave         {
-	-webkit-animation: slideOutLeft 0.3s both ease-in;
-	-moz-animation: slideOutLeft 0.3s both ease-in;
-	animation: slideOutLeft 0.3s both ease-in;
+.page-anim.ng-leave         {
+	-webkit-animation: slideOutLeft 0.1s both ease-in;
+	-moz-animation: slideOutLeft 0.1s both ease-in;
+	animation: slideOutLeft 0.1s both ease-in;
 }
-.page-home.ng-enter 		{  
-	transition-delay:0.3;
+.page-anim.ng-enter 		{  
+	transition-delay:0.5s;
+	-webkit-transition-delay:0.5s;
+	-moztransition-delay:0.5s;
+	-otransition-delay:0.5s; 
     -webkit-animation:slideInRight 1s both ease-in;
 	-moz-animation:slideInRight 1s both ease-in;
 	animation:slideInRight 1s both ease-in;    
-}
-
-/* about ------------------------ */
-.page-about.ng-leave        {
-    -webkit-animation:slideOutLeft 0.5s both ease-in;
-	-moz-animation:slideOutLeft 0.5s both ease-in;
-	animation:slideOutLeft 0.5s both ease-in;   
-}
-.page-about.ng-enter 		{  
-    -webkit-animation:slideInRight 0.5s both ease-in;
-	-moz-animation:slideInRight 0.5s both ease-in;
-	animation:slideInRight 0.5s both ease-in;    
-}
-
-/* contact ---------------------- */
-.page-contact.ng-leave      {
-    -webkit-transform-origin: 50% 50%;
-	-webkit-animation: rotateOutNewspaper .5s both ease-in;
-	-moz-transform-origin: 50% 50%;
-	-moz-animation: rotateOutNewspaper .5s both ease-in;
-	transform-origin: 50% 50%;
-	animation: rotateOutNewspaper .5s both ease-in;
-}
-.page-contact.ng-enter 		{ 
-    -webkit-animation:slideInUp 0.5s both ease-in;
-	-moz-animation:slideInUp 0.5s both ease-in;
-	animation:slideInUp 0.5s both ease-in;  
 }
 
 /* rotate and fall */
@@ -226,8 +204,8 @@ body{
 }
 
 #access a:hover, #access #menu a:hover, #access a.skip-link.focus, #access #menu a.skip-link.focus, #menu li a:hover {
-  background-color: #b9d9ce;
-  color: #5a4741;
+  background-color: #3e3569;
+  color: #ffffff;
 }
 
 #access {
@@ -339,7 +317,7 @@ body{
     opacity: 1;
   }
   #menu li a:hover:before {
-    color: #689384;
+    color: #3e3569;
   }
   #menu li.active a:before, #menu li.active a:hover:before {
     color: #fff;

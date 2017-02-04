@@ -2,44 +2,54 @@ var app = angular.module("myApp", ["ngRoute","ngAnimate"]);
 app.  config(['$locationProvider', '$routeProvider',
     function config($locationProvider, $routeProvider) {
         $locationProvider.html5Mode({
-        enabled: false,
+        enabled: true,
         requireBase: false
         });
-        //$locationProvider.hashPrefix('!');
+        $locationProvider.hashPrefix('!');
         $routeProvider
         .when("/", {
             templateUrl: "views/home.html",
-            controller: 'mainController'
+            controller: 'HomeCtrl'
         })
         .when("/home", {
             templateUrl: "views/home.html",
-            controller: 'mainController'
+            controller: 'HomeCtrl'
         })
         .when("/aboutus", {
             templateUrl: "views/aboutus.html",
-            controller: 'mainController'
+            controller: 'AboutCtrl'
         })
         .when("/contactus", {
             templateUrl : "views/contact.html",
-            controller: 'mainController'
+            controller: 'contactCtrl'
         })
         .when("/services", {
             templateUrl: "views/services.html",
-            controller: 'mainController'
+            controller: 'ServiceCtrl'
         })
         // .otherwise({ redirectTo: '/home' });
         .otherwise({  template: "Page Not found" });
         }
   ]);
 
-app.controller('mainController', function($scope) {
+app.controller('MainCtrl', function($scope,$location,$anchorScroll) {
+    $scope.pageClass = 'page-home';
+
+        $scope.onMenuClick=function(){
+                $location.hash('menu');
+                $anchorScroll();
+        }
+});
+app.controller('HomeCtrl', function($scope) {
     $scope.pageClass = 'page-home';
 });
-
-app.controller('aboutController', function($scope) {
+app.controller('AboutCtrl', function($scope) {
     $scope.pageClass = 'page-about';
 });
 
-app.controller('contactController', function($scope) {
+app.controller('contactCtrl', function($scope) {
+    $scope.pageClass = 'page-contact';
+});
+app.controller('ServiceCtrl', function($scope) {
     $scope.pageClass = 'page-contact';
 });
