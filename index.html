@@ -2,31 +2,44 @@
 <html ng-app='myApp'>
     <head>
         <title>ImpairBit</title>
-        <base href='/'>
-        <link rel="stylesheet" href="assets/css/style.css"></link>
+        <link rel="stylesheet" href="./assets/css/style.css"></link>
     </head>
     <body>
 
     <header>
 
     </header>
-
-        <div class='Page Header'>
-
-
+        <!--<div class='Page Header'>
             <div class='Menu_Container'>
                 <a href="/">Home</a>
                 <a href="/aboutus">About US</a>
                 <a href="/contactus">Contact US</a>
-                <a href="/products">Products</a>
+                <a href="/products">Products </a>
             </div>
-        </div>
+        </div>-->
+        <div>
+            <nav role="navigation" id="access">
+                <a class="skip-link icon-reorder" title="Menu" href="/">Menu</a>
+                <ul id="menu">
+                        <li class="active"><a class="icon-home" href="/">Home</a></li>
+                        <li><a class="icon-group" href="/aboutus">About Us</a></li>
+                        <li><a class="icon-leaf" href="/services">Services</a></li>
+                        <li><a class="icon-envelope-alt" href="/contactus">Contact</a></li>
+                </ul>
+            </nav>
+        <div>
+	<div class="page {{ pageClass }}" ng-view ></div>
 
-        <div ng-view></div>
-        
-        <script src='libs/angular.min.js'></script>
-        <script src='libs/angular-route.js'></script>
-        <script src='libs/ui-bootstrap-tpls.min.js'></script>
-        <script src='js/app.js'></script>
+    <div >
+    
     </body>   
+        <script src='./libs/angular.min.js'></script>
+        <script src='./libs/angular-route.js'></script>
+        <script src='./libs/angular-animate.js'></script>
+        <script>
+            angular.element(document.getElementsByTagName('head')).append(angular.element('<base href="' + window.location.pathname + '" />'));
+        </script>
+        <script src='./js/app.js'></script>
+
 <html>
+
