@@ -19,6 +19,7 @@ body{
     padding: 0;
     margin: 0;
     height: 100%;
+	overflow-x:hidden;
     font-family: Frutiger, "Frutiger Linotype", Univers, Calibri, "Gill Sans", "Gill Sans MT", "Myriad Pro", Myriad, "DejaVu Sans Condensed", "Liberation Sans", "Nimbus Sans L", Tahoma, Geneva, "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 .page        { 
@@ -38,17 +39,15 @@ body{
 
 /* home -------------------------- */
 .page-home.ng-leave         {
-    -webkit-transform-origin: 0% 0%;
-	-webkit-animation: scaleUp 1s both ease-in;
-	-moz-transform-origin: 0% 0%;
-	-moz-animation: scaleUp 1s both ease-in;
-	transform-origin: 0% 0%;
-	animation: scaleUp 1s both ease-in;
+	-webkit-animation: slideOutLeft 0.3s both ease-in;
+	-moz-animation: slideOutLeft 0.3s both ease-in;
+	animation: slideOutLeft 0.3s both ease-in;
 }
 .page-home.ng-enter 		{  
-    -webkit-animation:scaleUp 0.5s both ease-in;
-	-moz-animation:scaleUp 0.5s both ease-in;
-	animation:scaleUp 0.5s both ease-in;    
+	transition-delay:0.3;
+    -webkit-animation:slideInRight 1s both ease-in;
+	-moz-animation:slideInRight 1s both ease-in;
+	animation:slideInRight 1s both ease-in;    
 }
 
 /* about ------------------------ */
