@@ -3,31 +3,103 @@ White: (RGB: 255, 255, 255) (hex code: #FFFFFF)
 Green: (RGB: 19, 136, 8) (hex code: #138808)
 Blue: (RGB: 0, 0, 128) (hex code: #000080)*/
 
+
+
+/****Fonts*****/
+@font-face {
+    font-family: 'vivaldi';
+    src: url('../fonts/vivaldii-webfont.eot');
+    src: url('../fonts/vivaldii-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/vivaldii-webfont.woff2') format('woff2'),
+         url('../fonts/vivaldii-webfont.woff') format('woff'),
+         url('../fonts/vivaldii-webfont.ttf') format('truetype'),
+         url('../fonts/vivaldii-webfont.svg#vivaldiitalic') format('svg');
+    font-weight: normal;
+    font-style: italic;
+
+}
+
+@font-face {
+    font-family: 'baskerville_old_face';
+    src: url('../fonts/baskvill-webfont.eot');
+    src: url('../fonts/baskvill-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/baskvill-webfont.woff2') format('woff2'),
+         url('../fonts/baskvill-webfont.woff') format('woff'),
+         url('../fonts/baskvill-webfont.ttf') format('truetype'),
+         url('../fonts/baskvill-webfont.svg#baskerville_old_faceregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+/*=================================================*/
+
 /* BASE STYLES
+
 ============================================================================= */
 html, body {
   width: 100%;
   height: 100%;
 }
+
 body{
     background: -webkit-gradient(radial, 12% 0%, 0, 12% 0%, 100, color-stop(0%, #382c75), color-stop(100%, #0c081f));
     background: -webkit-radial-gradient(center center, ellipse cover, #382c75 12%, #0c081f 100%);
-    background: -moz-radial-gradient(center center, ellipse cover, #382c75 12%, #0c081f 100%));
-    background: -o-radial-gradient(center center, ellipse cover, #382c75 12%, #0c081f 100%));
-    background: -ms-radial-gradient(center center, ellipse cover, #382c75 12%, #0c081f 100%));
-    background: radial-gradient(center center, ellipse cover, #382c75 12%, #0c081f 100%));
+    background: -moz-radial-gradient(center center, ellipse cover, #382c75 12%, #0c081f 100%);
+    background: -o-radial-gradient(center center, ellipse cover, #382c75 12%, #0c081f 100%);
+    background: -ms-radial-gradient(center center, ellipse cover, #382c75 12%, #0c081f 100%);
+    background: radial-gradient(center center, ellipse cover, #382c75 12%, #0c081f 100%);
     padding: 0;
     margin: 0;
     height: 100%;
 	overflow-x:hidden;
     font-family: Frutiger, "Frutiger Linotype", Univers, Calibri, "Gill Sans", "Gill Sans MT", "Myriad Pro", Myriad, "DejaVu Sans Condensed", "Liberation Sans", "Nimbus Sans L", Tahoma, Geneva, "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
+.page-header{
+    position: relative;
+    top: 1rem;
+}
+.title-table{
+    background: rgb(255, 255, 255);
+    border-radius: 4.5rem 0px;
+    padding: 1rem;
+    margin: auto;
+    margin-bottom: 1rem;
+    text-align: center;
+    text-shadow: 2px 2px 1px rgba(52, 41, 109, 0.31);
+    color: #161033;
+    position: absolute;
+    top: 0;
+    z-index: 1;
+    left: 15px;
+    box-shadow: 0px 0px 20px #000000;
+}
+.title{
+    font-family: 'baskerville_old_face';
+    font-size: 3.2rem;
+    font-weight: bold;
+}
+.tag-line{
+    font-size: 0.9rem;
+    position: absolute;
+    right: 20px;
+    bottom: 1.4rem;
+}
+.title span{
+  font-family:'vivaldi';
+}
+#content{
+    /* margin-top: 1rem; */
+    width: 100%;
+    top: 1rem;
+    position: relative;
+}
 .page        { 
     color: #ffffff;
     padding: 2em;
     text-shadow: 4px 1px 6px rgb(0, 0, 0);
-	font-size: 1.3em;
-	background: rgba(84, 84, 84, 0.25);
+    font-size: 1.3em;
+    background: rgba(84, 84, 84, 0.25);
+    margin-top: 3rem;
 }
 
 
@@ -206,6 +278,7 @@ body{
 #access a:hover, #access #menu a:hover, #access a.skip-link.focus, #access #menu a.skip-link.focus, #menu li a:hover {
   background-color: #3e3569;
   color: #ffffff;
+  border-radius:0.3rem;
 }
 
 #access {
@@ -217,6 +290,7 @@ body{
 #access a.skip-link, #access #menu a.skip-link {
   position: relative;
   z-index: 2;
+  text-align: center;
 }
 #access a.skip-link span, #access #menu a.skip-link span {
   position: absolute;
@@ -227,11 +301,16 @@ body{
   box-shadow: inset 0 0 0.5em rgba(0, 0, 0, 0.2);
   padding: 0 0.3em;
 }
-#access #menu li.active a a, #access #menu li.active a a:hover, #access #menu li.active:nth-child(odd) a, #access #menu li.active:nth-child(odd) a:hover {
-    background-color: #483f77;
+#access #menu li.active a a, #access #menu li.active a a:hover, #access #menu li.active:nth-child(odd) a, #access #menu li.active:nth-child(even) a {
+    background-color: #231b4c;
     color: #fff;
     cursor: default;
-    text-shadow: 0px 0px 6px #000;
+    /* text-shadow: 0px 0px 2px #b5b5b5; 
+    border: 0.3em solid #241c4d;
+    border-right: 0;
+    border-left: 0;*/
+    border-radius: 0;
+    box-shadow: 0px 0px 19px #251d50;
 }
 
 #menu {
@@ -259,7 +338,25 @@ body{
   -moz-binding: url('xml/ellipsis.xml#ellipsis');
 }
 
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 530px) {
+    table tr > *{
+        display: block;
+    }
+    table tr {
+        display: table-cell;
+    }
+
+  ul li .fa{
+    float: left;
+    margin-right: 10px;
+    line-height: 1.8rem !important;;
+  }
+
+  .title-table{
+    position: relative;
+    left: 0;
+  }
+  
   #menu {
     -webkit-transform-style: preserve-3d;
     -moz-transform-style: preserve-3d;
@@ -273,6 +370,7 @@ body{
     transition: margin 500ms linear;
     margin-top: -1.2em;
     overflow: hidden;
+    text-align: left !important;
   }
   #menu li {
     max-height: 0;
@@ -339,8 +437,16 @@ body{
     -o-transform: rotateX(0) scale(1);
     transform: rotateX(0) scale(1);
   }
+
+  .tag-line{
+    font-size: 0.8rem;
+    position: absolute;
+    right: 35px;
+    bottom: 1rem;
+  }
 }
-@media only screen and (min-width: 769px) {
+@media only screen and (min-width: 530px) {
+
   [class^="icon-"]:before,
   [class*=" icon-"]:before {
     display: block;
@@ -355,7 +461,7 @@ body{
   #menu {
     width: 100%;
     background: #ffffff;
-    text-align: center;
+    text-align: right;
   }
   #menu li {
     display: -moz-inline-box;
@@ -366,7 +472,8 @@ body{
     white-space: nowrap;
   }
   #menu li {
-    *display: inline;
+    margin: 0px 15px;
+    text-align: center;
   }
   #menu li a:before {
     -webkit-transition: -webkit-transform 500ms ease-in;
@@ -381,5 +488,16 @@ body{
     -ms-transform: translateY(1em) scale(3) rotate(15deg);
     -o-transform: translateY(1em) scale(3) rotate(15deg);
     transform: translateY(1em) scale(3) rotate(15deg);
+  }
+}
+
+@media only screen and (max-width: 920px) {
+  .title-table {
+        position: relative;
+        margin-bottom: 0;
+        left: 0;
+  }
+  #menu {
+        text-align: center;
   }
 }

@@ -2,10 +2,10 @@ var app = angular.module("myApp", ["ngRoute","ngAnimate"]);
 app.  config(['$locationProvider', '$routeProvider',
     function config($locationProvider, $routeProvider) {
         $locationProvider.html5Mode({
-        enabled: true,
+        enabled: false,
         requireBase: false
         });
-        $locationProvider.hashPrefix('!');
+       // $locationProvider.hashPrefix('!');
         $routeProvider
         .when("/", {
             templateUrl: "views/home.html",
@@ -32,24 +32,27 @@ app.  config(['$locationProvider', '$routeProvider',
         }
   ]);
 
-app.controller('MainCtrl', function($scope,$location,$anchorScroll) {
+app.controller('MainCtrl', function($scope,$rootScope,$location,$anchorScroll) {
     $scope.pageClass = 'page-home';
+    $scope.isActive=1;
+    $scope.isOpen=false;
+    $rootScope.setactive=function(page){
+        console.log(page);
+        $scope.isActive=page;
+    }
 
-        $scope.onMenuClick=function(){
-                $location.hash('menu');
-                $anchorScroll();
-        }
 });
-app.controller('HomeCtrl', function($scope) {
-    $scope.pageClass = 'page-home';
+app.controller('HomeCtrl', function($scope,$rootScope) {
+    $rootScope.setactive(1);
 });
-app.controller('AboutCtrl', function($scope) {
-    $scope.pageClass = 'page-about';
+app.controller('AboutCtrl', function($scope,$rootScope) {
+    $rootScope.setactive(2);
 });
 
-app.controller('contactCtrl', function($scope) {
-    $scope.pageClass = 'page-contact';
+
+app.controller('ServiceCtrl', function($scope,$rootScope) {
+    $rootScope.setactive(3);
 });
-app.controller('ServiceCtrl', function($scope) {
-    $scope.pageClass = 'page-contact';
+app.controller('contactCtrl', function($scope,$rootScope) {
+    $rootScope.setactive(4);
 });
