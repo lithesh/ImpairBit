@@ -51,7 +51,7 @@ body{
     padding: 0;
     margin: 0;
     height: 100%;
-	overflow-x:hidden;
+	  overflow-x:hidden;
     font-family: Frutiger, "Frutiger Linotype", Univers, Calibri, "Gill Sans", "Gill Sans MT", "Myriad Pro", Myriad, "DejaVu Sans Condensed", "Liberation Sans", "Nimbus Sans L", Tahoma, Geneva, "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 .page-header{
@@ -93,13 +93,21 @@ body{
     top: 1rem;
     position: relative;
 }
-.page        { 
+.page { 
+    margin-top: 4rem;
+    overflow-y: auto;
+    height: 72%;
+    background: rgba(84, 84, 84, 0.25);
+}
+.page>div{ 
     color: #ffffff;
     padding: 2em;
     text-shadow: 4px 1px 6px rgb(0, 0, 0);
     font-size: 1.3em;
-    background: rgba(84, 84, 84, 0.25);
-    margin-top: 3rem;
+    /* background: rgba(84, 84, 84, 0.25); */
+    /* margin-top: 4rem; */
+    width: 80%;
+    margin: auto;
 }
 
 
@@ -275,7 +283,7 @@ body{
   transition: transform 500ms linear, box-shadow 500ms ease-in, background-color 250ms ease-in;
 }
 
-#access a:hover, #access #menu a:hover, #access a.skip-link.focus, #access #menu a.skip-link.focus, #menu li a:hover {
+#access #menu a:hover, #access a.skip-link.focus, #access #menu a.skip-link.focus, #menu li a:hover {
   background-color: #3e3569;
   color: #ffffff;
   border-radius:0.3rem;
@@ -373,6 +381,7 @@ body{
     text-align: left !important;
   }
   #menu li {
+    font-size: 1.1rem;
     max-height: 0;
     position: relative;
     -webkit-transform-style: preserve-3d;
@@ -500,4 +509,33 @@ body{
   #menu {
         text-align: center;
   }
+}
+
+
+footer{
+    height: 10%;
+    color: #000080;
+    text-align: center;
+    border-top: 1px solid;
+    background: #fff;
+    bottom: 0;
+    position: relative;
+}
+
+footer div{
+    /*float: left;
+    width: 30%;
+    background: #822e2e; */
+    padding: 8px;
+}
+
+footer small{
+    position: absolute;
+    bottom: 1rem;
+    left: 0;
+    width: 100%;
+    font-weight: bold;
+}
+footer .social-network{
+      font-size: 1.5em;
 }
