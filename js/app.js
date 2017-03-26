@@ -1,4 +1,4 @@
-var app = angular.module("myApp", ["ngRoute","ngAnimate"]);
+var app = angular.module("myApp", ["ngRoute","ngAnimate","ngScrollbar"]);
 app.  config(['$locationProvider', '$routeProvider',
     function config($locationProvider, $routeProvider) {
         $locationProvider.html5Mode({
@@ -27,6 +27,10 @@ app.  config(['$locationProvider', '$routeProvider',
             templateUrl: "views/services.html",
             controller: 'ServiceCtrl'
         })
+        .when("/products", {
+            templateUrl: "views/products.html",
+            controller: 'productCtrl'
+        })
         // .otherwise({ redirectTo: '/home' });
         .otherwise({  template: "Page Not found" });
         }
@@ -37,7 +41,6 @@ app.controller('MainCtrl', function($scope,$rootScope,$location,$anchorScroll) {
     $scope.isActive=1;
     $scope.isOpen=false;
     $rootScope.setactive=function(page){
-        console.log(page);
         $scope.isActive=page;
     }
 
@@ -53,6 +56,9 @@ app.controller('AboutCtrl', function($scope,$rootScope) {
 app.controller('ServiceCtrl', function($scope,$rootScope) {
     $rootScope.setactive(3);
 });
-app.controller('contactCtrl', function($scope,$rootScope) {
+app.controller('productCtrl', function($scope,$rootScope) {
     $rootScope.setactive(4);
+});
+app.controller('contactCtrl', function($scope,$rootScope) {
+    $rootScope.setactive(5);
 });
