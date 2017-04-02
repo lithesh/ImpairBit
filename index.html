@@ -1,18 +1,18 @@
 <!DOCTYPE html>
-<html ng-app='myApp'>
+<html ng-app='myApp' ng-controller="MainCtrl">
     <head>
-        <title>ImpairBit</title>
+        <title>{{"IBSS - "+pageTitle}}</title>
         <link rel="stylesheet" href="./assets/css/style.css"></link>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"></link>
         <link rel="stylesheet" href="./libs/scroll/ng-scrollbar.min.css" >
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
-    <body ng-controller="MainCtrl">
+    <body >
         <header class='page-header'>
             <a href="#!">
                 <table class='title-table' >
                     <tr>
-                        <td><img style="width:100px; margin:0 auto;" src="./assets/img/logo2.png"></td>
+                        <!--<td><img style="width:100px; margin:0 auto;" src="./assets/img/logo2.png"></td>-->
                         <td class='title'><span>I</span>mpair<span>B</span>it<div class='tag-line'>Way to enhance efficiency</div></td>
                     </tr>
                 </table>
@@ -41,6 +41,7 @@
     <small>© Copyright 2017, ImpairBit software solutions</small>
     </footer> 
     </body>   
+            <!--AIzaSyCWDp3TW9YuCfNP_uKEtqHiKOG-H2lrWd4-->
         <script src='./libs/angular.min.js'></script>
         <script src='./libs/angular-route.js'></script>
         <script src='./libs/angular-animate.js'></script>
@@ -50,5 +51,6 @@
         <script src="./libs/scroll/ng-scrollbar.min.js"></script>
         
         <script src='./js/app.js'></script>
+        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCWDp3TW9YuCfNP_uKEtqHiKOG-H2lrWd4"async defer ></script>
 <html>
 
