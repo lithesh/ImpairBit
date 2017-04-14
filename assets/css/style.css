@@ -124,18 +124,18 @@ a{
 /* ANIMATIONS
 ============================================================================= */
 
-.page.ng-leave 	{ z-index:9999; }
+.page.ng-leave	{ z-index:9999; }
 .page.ng-enter 	{ z-index:8888; }
 
 /* page specific animations ------------------------ */
 
 /* home -------------------------- */
-.page-anim.ng-leave         {
+.page-anim.ng-leave {
 	-webkit-animation: slideOutLeft 0.1s both ease-in;
 	-moz-animation: slideOutLeft 0.1s both ease-in;
 	animation: slideOutLeft 0.1s both ease-in;
 }
-.page-anim.ng-enter 		{  
+.page-anim.ng-enter	{  
 	transition-delay:0.5s;
 	-webkit-transition-delay:0.5s;
 	-moztransition-delay:0.5s;
@@ -626,6 +626,22 @@ footer small{
 footer .social-network{
     font-size: 20px;
 }
+
+
+.carousel-container{
+    position: absolute;
+    width: 80%;
+    height: 90%;
+    text-align: center;
+}
+
+.carousel-container .events{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-size: 100% 100%;
+}
+
 
 
 

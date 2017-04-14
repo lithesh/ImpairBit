@@ -31,6 +31,10 @@ app.  config(['$locationProvider', '$routeProvider',
             templateUrl: "views/products.html",
             controller: 'productCtrl'
         })
+        .when("/events/:eventId", {
+            templateUrl: "views/events.html",
+            controller: 'EventsCtrl'
+        })
         // .otherwise({ redirectTo: '/home' });
         .otherwise({  template: "Page Not found" });
         }
@@ -50,14 +54,93 @@ app.controller('MainCtrl', function($scope,$rootScope,$location,$anchorScroll) {
         $scope.pageTitle=title;
     }
 
+       $scope.Events=[
+            {
+                Title:'Decode Future',
+                subTitile:'A career guidance initiative from ImpairBit.',
+                TitleStyle:{
+                        "width": "90%",
+                        "color": "rgb(255, 255, 255)",
+                        "text-shadow": "rgb(0, 0, 0) 2px 2px 1px",
+                        "background": "rgba(0,0,0,0.5)",
+                        "margin": "auto",
+                        "margin-top": "70px"
+                },
+                Description:'Want to become an IT professionl before landing on your first job, then this opportunity is for you. Get Enrolled before its too late!!',
+                DescStyle:{
+                    "color": "#ffffff",
+                    "text-shadow": "#000000 2px 2px 1px"
+                },
+                buttonTxt:'Know More',
+                ButtonStyle:{
+                    "margin-top": "10px",
+                    "background": "#ffffff",
+                    "width": "100px",
+                    "height": "35px",
+                    "border": "#ffffff",
+                    "border-radius": "10px",
+                    "cursor":"pointer"
+                },
+                Image:'assets/img/decode_future.jpg',
+                href:'decode_future',
+                tab:'_blank'
+            },
+            {
+                Title:'ABC',
+                subTitile:'way to learn coding',
+                TitleStyle:{
+                    "color": "#ffffff",
+                    "text-shadow": "#000000 2px 2px 1px"
+                },
+                Description:'ABCD EFG HIJK LMNOP LMNOPQRST UVWXYZ',
+                TitleStyle:{
+                    "color": "#ffffff",
+                    "text-shadow": "#000000 2px 2px 1px"
+                },
+                buttonTxt:'Explore',
+                Image:'',
+                href:'events',
+                tab:'_blank'
+            }
+    ];
+
+    $rootScope.getEvents=function(index){
+        return $scope.Events[index];
+    }
+
 });
-app.controller('HomeCtrl', function($scope,$rootScope) {
+app.controller('HomeCtrl', function($scope,$rootScope,$interval,$location) {
     $rootScope.setactive(1);
     $rootScope.setPageTitle("Home");
+    
+    $scope.currEvent=0;
+    $scope.currentEvent=$rootScope.getEvents($scope.currEvent);
+
+    // $interval(function(){
+    //     $scope.currEvent++;
+    //     $scope.currEvent=($scope.currEvent>=$scope.Events.length)?0:$scope.currEvent;
+    //     $scope.currentEvent=$scope.Events[$scope.currEvent];
+    // },5000);
+
+    $scope.onEventClicked=function(path){
+        // $location.path(path)
+        console.log($location.absUrl());
+        // window.open($location.absUrl()+path+$scope.currEvent);
+        window.open('/'+path+'.html');
+    }
+
 });
 app.controller('AboutCtrl', function($scope,$rootScope) {
     $rootScope.setactive(2);
     $rootScope.setPageTitle("About us");
+});
+
+app.controller('EventsCtrl', function($scope,$rootScope,$routeParams) {
+
+    console.log('param',$routeParams);
+    $scope.Event=$rootScope.getEvents($routeParams.eventId);
+    console.log('Event',$scope.Event);
+    $rootScope.setPageTitle("");
 });
 
 

@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Decode Future</title>
+        <link rel='shortcut icon' type='image/x-icon' href='assets/img/ibss.gif' />
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"></link>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style>
+body {
+    margin:0;
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+footer ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color:#948A54;
+    position: fixed;
+    width: 100%;
+    height:100%;
+    padding-top: 10px;
+}
+
+footer ul li {
+    display: inline-block;
+}
+
+footer ul li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+footer ul li a:hover:not(.active) {
+    background-color: #C0B890;
+}
+
+footer ul li:active {
+    background-color: #4CAF50;
+}
+
+.course{
+  list-style-type: none;
+}
+.course ul{
+  list-style-type: none;
+}
+.header{
+    position: absolute;
+    height: 10%;
+    top: 0px;
+    width: 100%;
+    left: 0px;
+    text-align: center;
+    background: #333333;
+    color: #ffffff;
+}
+
+.event-details{
+    position: absolute;
+    top: 0;
+    left: 0px;
+    width: 100%;
+    height: 90%;
+    overflow: hidden;
+    overflow-y: auto;
+    transition: all 0.5;
+    background:url('assets/img/decode_future/bg_img.j.png');
+    background-size: 100% 100%;
+}
+
+.footer{
+    position: absolute;
+    top: 90%;
+    left: 0px;
+    width: 100%;
+    text-align: center;
+    background: #333333;
+    border-top: 1px solid;
+    color: #fff;
+}
+
+.division{
+    /*height: 100%;*/
+    padding:20px;
+    text-align: center;
+    color:#ffffff;
+}
+
+.division>div img{
+    width:100%;
+    min-width:190px;
+}
+
+/*.division>div .pic3{
+    width:100%;
+}*/
+
+.division .content{
+    text-align: left;
+    font-size: 14px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+.division .content .Table{
+    width:100%;
+}
+
+/*#About{
+    background:#8e44ad;
+}
+#Vision{
+    background: #f1c40f;
+}
+#Enroll{
+    background: #2c3e50;
+}*/
+
+
+/**Scroll**//
+/*internet explorer scrollbalken*/
+body{
+  scrollbar-base-color: #C0C0C0;
+  scrollbar-base-color: #C0C0C0;
+  scrollbar-3dlight-color: #C0C0C0;
+  scrollbar-highlight-color: #C0C0C0;
+  scrollbar-track-color: #EBEBEB;
+  scrollbar-arrow-color: black;
+  scrollbar-shadow-color: #C0C0C0;
+  scrollbar-dark-shadow-color: #C0C0C0;
+}
+/*mozilla scrolbalken*/
+@-moz-document url-prefix(http://),url-prefix(https://) {
+scrollbar {
+   -moz-appearance: none !important;
+   background: rgb(0,255,0) !important;
+}
+thumb,scrollbarbutton {
+   -moz-appearance: none !important;
+   background-color: rgb(0,0,255) !important;
+}
+
+thumb:hover,scrollbarbutton:hover {
+   -moz-appearance: none !important;
+   background-color: rgb(255,0,0) !important;
+}
+
+scrollbarbutton {
+   display: none !important;
+}
+
+scrollbar[orient="vertical"] {
+    width:15px;
+  min-width: 10px !important;
+}
+}
+/**/
+.scrollbar-container {
+    position: absolute;
+    /* top: 0; */
+    /* bottom: 0; */
+    /* left: 0; */
+    /* right: 0; */
+    /* margin: 20px; */
+    /* border: 4px solid rgba(0, 0, 0, 0.2); */
+    overflow: auto;
+    background-color: whiteSmoke;
+}
+.scrollbar-container .inner {
+    height: 2011px;
+    width: 1985px;
+    padding: 1em;
+    background-color: white;
+    font-family: sans-serif;
+}
+::-webkit-scrollbar {
+    background: transparent;
+}
+::-webkit-scrollbar-thumb {
+    background-color: #948A54;
+    border: solid #948A54 1px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background-color: #b1aa87;
+}
+
+.division h2{
+    color:#948A54;
+}
+
+#map {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    margin-top: 30px;
+    height: 400px;
+    color:#000000;
+    background-color: grey;
+ }
+
+ .Table table tr > *{
+     display: table-cell;
+ }
+.division .content .Table table td{
+    width:initial;
+    min-width: 30px;
+    color:#fff;
+}
+.division .content .Table table td a{
+    color:#fff;
+    text-decoration: none;
+}
+@media only screen and (max-width: 720px) {
+    .Table tr > *{
+        display: block;
+    }
+    .Table tr {
+        display: block;
+    }
+    .division>div img{
+        width:50%;
+        min-width:190px;
+    }
+    .division .content .Table td {
+        width: 100%;
+    }
+}
+
+@media only screen and (max-width: 420px) {
+    .division>div img{
+        width:100%;
+    }
+}
+</style>
+<script>
+    function initMap(){
+        var office = {lat: 13.0906444, lng: 80.2685029};
+        var map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 20,
+          center: office
+        });
+        var marker = new google.maps.Marker({
+          position: office,
+          map: map,
+          title: 'ImpairBit Software Solutions'
+        });
+
+        marker.addListener('click', function() {
+            infowindow.open(map, marker);
+        });
+
+        var contentString = '<div id="content">'+
+            '<div id="siteNotice">'+
+            '</div>'+
+            '<div><strong>ImpairBit Software Solutions</strong></div>'+
+            '<div id="bodyContent">'+
+            '<p>144, Choolai High Road, Choolai, Chennai - 600012</p>'+
+            '<p>Website: <a href="http://www.impairbit.com">www.impairbit.com</a></p>'+
+            '</div>'+
+            '</div>';
+
+        var infowindow = new google.maps.InfoWindow({
+            content: contentString
+        });
+
+        infowindow.open(map, marker);
+
+        var currCenter = map.getCenter();
+        google.maps.event.addDomListener(window, 'resize', function() {
+            //Set Center
+            map.setCenter(office);
+        });
+      }
+</script>
+    </head>
+    <body>
+        <!--<header class='header'>
+            <h2>DECODE FUTURE</h2>
+            <span>A Career guidance initiative from ImpairBit</span>
+        </header>-->
+        <div class='event-details scrollbar-container'>
+                <div class='division' id="About">
+                    <div>
+                        <h2>Decode Future</h2>
+                            <table class='Table'>
+                                <tr>
+                                    <td><img class="pic3" src="assets/img/decode_future/Picture1.png"></td>
+                                    <td>                        
+                                        <div class='content'>
+                                            <p>
+                                                Decode future(D-F) is an initiative by ImpairBit group which brings students an oppurtunity to build their career path and improve the technical knowledge.Decode future(D-F) makes a candidate identify his/her capability and potential in IT-Sector from where they can choose the platform in the giant IT industry.
+                                            </p>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </table>
+                        </br>
+                        <h2>What you get from us?</h2>
+                        </br>
+                            <table class='Table'>
+                                <tr>
+                                    <td><img class="pic3" src="assets/img/decode_future/Picture2.png"></td>
+                                    <td>
+                                        <div class="content">
+                                            <p>
+                                                D-F program concentrates on training a cantidate under the Job profile "Software Developer". We acheive this by giving a candidate training on various technologies and letting him/her work in the ongoing industry products.
+                                            </p>
+                                        </div>  
+                                    </td>
+                                </tr>
+                            </table>
+                        
+                    </div>
+                </div>
+                <div class='division' id="Vision">
+                    <h2>Internship Programs</h2>
+                    </br>
+                    <div>
+                        <table class='Table'>
+                            <tr>
+                                <td>
+                                    <img class='pic3'  src="assets/img/decode_future/Picture3.png"/>
+                                </td>
+                                <td>
+                                    <div class='content'>
+                                        <ul class="course">
+                                            <li>Classroom sessions (2 months)
+                                                <ul>
+                                                    <li>Web Applications
+                                                        <ul>
+                                                            <li>HTML5/CSS3/Javascript</li>
+                                                            <li>Java/J2EE</li>
+                                                            <li>SQL</li>
+                                                        </ul>
+
+                                                    </li>
+                                                    <li>Hybrid Mobile Applications
+                                                        <ul>
+                                                            <li>Ionic 2</li>
+                                                            <li>HTML5/CSS3/Javascript</li>
+                                                            <li>AngularJS</li>
+                                                            <li>SQL/PLSQL</li>
+                                                        </ul>
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                            <li>Product Development (4 Months)</li>
+                                        </ul>
+                                     </div>
+                                </td>
+                            </tr>     
+                        </table>
+                    </div>
+                </div>
+                <div class='division' id="Enroll">
+                    <h2>How to get enrolled?</h2>
+                    <div>
+                        <div class='content'>
+                             <table class='Table'>
+                                <tr>
+                                    <td>&nbsp;</td>
+                                    <td>
+                                        <div>
+                                            <strong>For Enrollment reach us @</strong><br/>
+                                            ImpairBit Software Solution,<br/>
+                                            #144, Choolai High Road,<br/>
+                                            (Near Nehru Statdium),<br/>
+                                            Choolai,<br/>
+                                            Chennai - 12<br/>
+                                        </div>
+                                    </td>
+                                    <td>&nbsp;</td>
+                                    <td>
+                                        
+                                        <table>
+                                            <tr>
+                                                <td><i class="fa fa-mobile" aria-hidden="true" style='font-size: 35px;'></i> </td>
+                                                <td>
+                                                    <div> +91 97911 48853</div>
+                                                    <div> +91 9841 793464</div>
+                                                    <div> +91 8124 303747</div>
+                                                    <div> +91 8608 655355</div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td><i class="fa fa-envelope" aria-hidden="true"></i> :</td>
+                                                <td><a href="mailto:contactus@impairbit.com">contactus@impairbit.com</a></td>
+                                            </tr>
+                                        </table>
+                                            <!--,<br/> 
+                                            <i class="fa fa-mobile" aria-hidden="true"></i> : +91 9841 793464,<br/> 
+                                            <i class="fa fa-mobile" aria-hidden="true"></i>  : +91 8124 303747,<br/> 
+                                            <i class="fa fa-mobile" aria-hidden="true"></i>  : +91 8608 655355</div>-->
+                                        <!--<div> : </div>-->
+                                    </td>
+       
+                                    <td>&nbsp;</td>
+                                    
+                                </tr>     
+                            </table>   
+
+                            <div id="map"></div>
+                        </div>
+                    </div>
+                </div>
+        </div>
+        <footer class='footer'>
+            <ul id="menu">
+                <li><a href="#About" ></i> About</a></li>
+                <li><a href="#Vision">Program</a></li>
+                <li><a href="#Enroll">Reach Us</a></li>
+            </ul>
+        </footer>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCWDp3TW9YuCfNP_uKEtqHiKOG-H2lrWd4&callback=initMap"async defer ></script>
+    </body>
+</html>

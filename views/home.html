@@ -1,24 +1,16 @@
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 <div>
-    <h1><strong>Welcome to our site</strong></h1>
-    <div>- Team ImpairBit</div>
+    <!--<h1><strong>Welcome to our site</strong></h1>
+    <div>- Team ImpairBit</div>-->
+    <div class='carousel-container'>
+        <div class='events' ng-style="{'background-image':'url('+currentEvent.Image+')'}" animate-change="currentEvent" change-class="slideInRight">
+            <div class='event-title' ng-style="currentEvent.TitleStyle">
+                <h2>{{currentEvent.Title}}</h2>
+                <span style="position: relative;top: -17px;">{{currentEvent.subTitile}}</span>
+                <div ng-style="currentEvent.DescStyle">
+                    {{currentEvent.Description}}
+                </div>
+            </div>
+            <button ng-click='onEventClicked(currentEvent.href)' ng-style='currentEvent.ButtonStyle'>{{currentEvent.buttonTxt}}</button>
+        </div>
+    </div>
 </div>
